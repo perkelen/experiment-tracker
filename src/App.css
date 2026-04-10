@@ -216,14 +216,14 @@ h1 {
   color: white;
   box-shadow: 0 2px 8px rgba(216, 134, 136, 0.4);
 }
-
+ 
 .empty {
   text-align: center;
   color: #999;
   padding: 40px;
   font-style: italic;
 }
-
+ 
 @media (max-width: 600px) {
   .container {
     padding: 20px;
