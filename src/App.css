@@ -8,10 +8,14 @@ body {
   min-height: 100vh;
   margin: 0;
   padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .container {
   max-width: 800px;
+  width: 100%;
   margin: 0 auto;
   background: white;
   border-radius: 24px;
@@ -19,7 +23,6 @@ body {
   box-shadow: 0 20px 35px rgba(0,0,0,0.2);
 }
 
-/* Шапка с логотипом */
 .header {
   display: flex;
   align-items: center;
@@ -49,7 +52,6 @@ h1 {
   margin: 0;
 }
 
-/* Форма добавления — используем ваш зелёный цвет */
 .add-form {
   display: flex;
   gap: 12px;
@@ -68,7 +70,7 @@ h1 {
 
 .add-form input:focus {
   outline: none;
-  border-color: #62CC5F; /* ← ваш зелёный */
+  border-color: #62CC5F;
 }
 
 .add-form select {
@@ -83,7 +85,7 @@ h1 {
 
 .add-form button {
   padding: 12px 24px;
-  background: #62CC5F; /* ← ваш зелёный */
+  background: #62CC5F;
   color: white;
   border: none;
   border-radius: 12px;
@@ -98,15 +100,14 @@ h1 {
   transform: scale(1.02);
 }
 
-/* Фильтр и счётчик — используем ваш жёлтый */
 .filter-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 25px;
   padding: 15px;
-  background: #FFFDE7; /* ← очень светлый жёлтый фон */
-  border-left: 5px solid #FFFF50; /* ← ваш жёлтый */
+  background: white;
+  border-left: 5px solid white;
   border-radius: 16px;
   flex-wrap: wrap;
   gap: 15px;
@@ -127,15 +128,16 @@ h1 {
 }
 
 .counter {
-  background: #62CC5F20; /* ← зелёный с прозрачностью */
-  padding: 8px 18px;
+  background: #62CC5F20;
+  padding: 8px 24px;
   border-radius: 30px;
   color: #2e7d32;
   font-weight: 500;
   border: 1px solid #62CC5F;
+  min-width: 250px;
+  text-align: center;
 }
 
-/* Список экспериментов */
 .experiment-list {
   list-style: none;
   padding: 0;
@@ -166,7 +168,6 @@ h1 {
   word-break: break-word;
 }
 
-/* Статусы с вашими цветами */
 .status-select {
   flex: 1;
   padding: 8px 12px;
@@ -183,33 +184,37 @@ h1 {
 }
 
 .status-plan {
-  background: #FFFF50; /* ← ваш жёлтый */
-  color: #333;
+  background: #8688d8;
+  color: white;
 }
 
 .status-progress {
-  background: #62CC5F; /* ← ваш зелёный */
+  background: #88d886;
   color: white;
 }
 
 .status-done {
-  background: #2e7d32;
+  background: #d88688;
   color: white;
 }
 
 .delete-btn {
-  background: #ffebee;
+  background: transparent;
   border: none;
   font-size: 1.3rem;
   cursor: pointer;
   padding: 8px 12px;
   border-radius: 30px;
-  transition: all 0.2s;
+  transition: all 0.3s ease;
+  opacity: 0.5;
 }
 
 .delete-btn:hover {
-  background: #ffcdd2;
+  background: linear-gradient(135deg, #d88688, #d27375);
+  opacity: 1;
   transform: scale(1.05);
+  color: white;
+  box-shadow: 0 2px 8px rgba(216, 134, 136, 0.4);
 }
 
 .empty {
@@ -239,5 +244,10 @@ h1 {
   
   .header {
     flex-direction: column;
+  }
+
+  .counter {
+    min-width: auto;
+    width: 100%;
   }
 }

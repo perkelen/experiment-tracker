@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import logo from './logo.svg'; // ← импорт вашего логотипа
+import logo from './logo.svg';
 
 const App = () => {
   const [experiments, setExperiments] = useState([]);
   const [newExperiment, setNewExperiment] = useState({ name: '', status: 'План' });
   const [filterStatus, setFilterStatus] = useState('Все');
 
-  // Загрузка из localStorage
   useEffect(() => {
     const saved = localStorage.getItem('experiments');
     if (saved) {
@@ -15,12 +14,10 @@ const App = () => {
     }
   }, []);
 
-  // Сохранение в localStorage
   useEffect(() => {
     localStorage.setItem('experiments', JSON.stringify(experiments));
   }, [experiments]);
 
-  // Добавление эксперимента
   const addExperiment = () => {
     if (!newExperiment.name.trim()) {
       alert('Введите название эксперимента');
@@ -35,34 +32,29 @@ const App = () => {
     setNewExperiment({ name: '', status: 'План' });
   };
 
-  // Удаление эксперимента
   const deleteExperiment = (id) => {
     setExperiments(experiments.filter(exp => exp.id !== id));
   };
 
-  // Обновление статуса
   const updateStatus = (id, newStatus) => {
     setExperiments(experiments.map(exp =>
       exp.id === id ? { ...exp, status: newStatus } : exp
     ));
   };
 
-  // Фильтрация
   const filteredExperiments = filterStatus === 'Все'
     ? experiments
     : experiments.filter(exp => exp.status === filterStatus);
 
-  // Подсчёт завершённых
   const completedCount = experiments.filter(exp => exp.status === 'Завершён').length;
 
   return (
     <div className="container">
       <div className="header">
         <img src={logo} className="app-logo" alt="logo" />
-        <h1>🧪 Учёт экспериментов</h1>
+        <h1>учёт экспериментов</h1>
       </div>
 
-      {/* Форма добавления */}
       <div className="add-form">
         <input
           type="text"
@@ -78,10 +70,9 @@ const App = () => {
           <option>В процессе</option>
           <option>Завершён</option>
         </select>
-        <button onClick={addExperiment}>➕ Добавить</button>
+        <button onClick={addExperiment}>Добавить</button>
       </div>
 
-      {/* Фильтр и счётчик */}
       <div className="filter-bar">
         <div className="filter">
           <label>Фильтр по статусу: </label>
@@ -97,7 +88,6 @@ const App = () => {
         </div>
       </div>
 
-      {/* Список экспериментов */}
       <ul className="experiment-list">
         {filteredExperiments.length === 0 ? (
           <li className="empty">Нет экспериментов</li>
