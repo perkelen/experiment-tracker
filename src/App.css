@@ -223,12 +223,12 @@ h1 {
   padding: 40px;
   font-style: italic;
 }
- 
+
 @media (max-width: 600px) {
   .container {
     padding: 20px;
   }
-  
+
   .experiment-item {
     flex-wrap: wrap;
   }
