@@ -84,7 +84,7 @@ const App = () => {
           </select>
         </div>
         <div className="counter">
-          ✅ Завершённых экспериментов: <strong>{completedCount}</strong>
+          Завершённых экспериментов: <strong>{completedCount}</strong>
         </div>
       </div>
 
