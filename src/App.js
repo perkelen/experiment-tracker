@@ -14,7 +14,7 @@ const App = () => {
     }
   }, []);
 
-  // сохранение в localStorage при изменении experiments
+  //сохранение в localStorage при изменении experiments
   useEffect(() => {
     localStorage.setItem('experiments', JSON.stringify(experiments));
   }, [experiments]);
